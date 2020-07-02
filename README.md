@@ -1,5 +1,5 @@
 # I2S Audio pHAT
-I2S Audio Interface for Raspberry Pi Zero
+I2S Audio Interface for Raspberry Pi Zero -- by Sergey Kiselev
 
 ## Introduction
 This is a Raspberry Pi Zero pHAT form-factor I2S audio interface board based on a [Cirrus Logic (Wolfson) WM8731](https://www.cirrus.com/products/wm8731/) audio codec. It provides line input, line output, headphones output, and includes an on-board microphone.
@@ -66,6 +66,8 @@ Comment out the `dtparam=audio=on` line:
 When using I2S Audio pHAT _without_ ID EEPROM (see [Raspberry Pi HAT ID EEPROM Programming](#raspberry-pi-hat-id-eeprom-programming) section below), add the following lines:
 
     # Enable WM8731 codec
+    # enable I2C bus for HAT (i2c0)
+    dtoverlay=i2c0
     dtparam=i2c_arm=on
     dtparam=i2s=on
     dtoverlay=i2s-mmap
@@ -82,6 +84,38 @@ Now you can use your favorite application to play music or record sound. Enjoy!
 ### Raspberry Pi HAT ID EEPROM Programming
 
 The I2S Audio pHAT includes an ID EEPROM as specified by HAT requirements. This ID EEPROM allows Raspbian to automatically detect the I2S Audio pHAT, add it to the device tree, and load approprate overlays and kernel modules. Follow the instructions below to program the EEPROM.
+Install dependencies software, if needed:
+
+sudo apt-get install -y i2c-tools device-tree-compiler
+
+Check to see if EEPROM is on i2c 0 bus:
+
+pi@moode:~/hats/eepromutils $ i2cdetect -y 0
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: 50 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+
+Check to see if WM8731 shows on i2c bus 1:
+(Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
+
+pi@moode:~/hats/eepromutils $ i2cdetect -y 1
+     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
+00:          -- -- -- -- -- -- -- -- -- -- -- -- --
+10: -- -- -- -- -- -- -- -- -- -- UU -- -- -- -- --
+20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
+70: -- -- -- -- -- -- -- --
+pi@moode:~/hats/eepromutils $
+
 
 Clone the Raspberry Pi [hats](https://github.com/raspberrypi/hats) repostory from GitHub:
 
