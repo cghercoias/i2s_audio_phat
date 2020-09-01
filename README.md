@@ -134,6 +134,45 @@ Create the `i2s_audio_phat.eep` ID EEPROM image, using the `eeprom_settings_i2s_
 
     ./eepmake ../../i2s_audio_phat/eeprom_settings_i2s_audio_phat.txt i2s_audio_phat.eep /boot/overlays/rpi-proto.dtbo
 
-Finally, flash the `i2s_audio_phat.eep` ID EEPROM image to the EEPROM. Make sure to close the JP1 jumper on the I2S Audio pHAT before writing the EEPROM, for example using male to male jumper wire, or otherwise the write will fail.
+Finally, flash the `i2s_audio_phat.eep` ID EEPROM image to the EEPROM. 
+Make sure to close the JP1 jumper on the I2S Audio pHAT before writing the EEPROM, for example using male to male jumper wire, or otherwise the write will fail.
 
     sudo ./eepflash.sh -w -f=i2s_audio_phat.eep -t=24c32
+
+
+Testing Audio
+
+Disable built-in audio:
+Open `/boot/config.txt` in your favorite editor (nano, vi) as root, for example:
+
+    sudo nano /boot/config.txt
+
+Comment out the `dtparam=audio=on` line:
+
+    # Enable audio (loads snd_bcm2835)
+    # dtparam=audio=on
+    
+
+Using mplayer
+
+sudo apt install -y mplayer
+
+Place your music in /home/pi/Music/ directory
+
+mplayer -ao alsa Music/example.mp3
+
+Basic keys: (complete list in the man page, also check input.conf)
+ <-  or  ->       seek backward/forward 10 seconds
+ down or up       seek backward/forward  1 minute
+ pgdown or pgup   seek backward/forward 10 minutes
+ < or >           step backward/forward in playlist
+ p or SPACE       pause movie (press any key to continue)
+ q or ESC         stop playing and quit program
+ + or -           adjust audio delay by +/- 0.1 second
+ o                cycle OSD mode:  none / seekbar / seekbar + timer
+ * or /           increase or decrease PCM volume
+ x or z           adjust subtitle delay by +/- 0.1 second
+ r or t           adjust subtitle position up/down, also see -vf expand
+
+ * * * SEE THE MAN PAGE FOR DETAILS, FURTHER (ADVANCED) OPTIONS AND KEYS * * *
+
