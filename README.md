@@ -123,7 +123,7 @@ Clone the Raspberry Pi [hats](https://github.com/raspberrypi/hats) repostory fro
 
 Clone the [I2S Audio pHAT](https://github.com/skiselev/i2s_audio_phat) repository from GitHub:
 
-    git clone https://github.com/skiselev/i2s_audio_phat
+    git clone https://github.com/cghercoias/i2s_audio_phat
 
 Build the `eepromutils` in the `hats` repository:
 
