@@ -129,7 +129,7 @@ Make sure to close the JP1 jumper on the I2S Audio pHAT before writing the EEPRO
 
 ### Testing Audio
 
-Disable built-in audio:
+Disable built-in RaspberryPi audio. 
 Open `/boot/config.txt` in your favorite editor (nano or vi) as 'root':
 
     sudo nano /boot/config.txt
