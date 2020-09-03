@@ -154,15 +154,15 @@ Place your music in a directory (i.e. `/home/pi/Music/`), then launch `mocp`
     
 ![mocp](images/mocp.png)
     
-`ENTER`          Start playing at this file or go to this directory
-`DOWN`           Move down in the menu
-`UP`             Move up in the menu
-`<`              Decrease volume by 1%
-`>`              Increase volume by 1%
-`,`              Decrease volume by 5%
-`.`              Increase volume by 5%
-`RIGHT`          Seek forward by n-s
-`LEFT`           Seek backward by n-s
+    `ENTER`          Start playing at this file or go to this directory
+    `DOWN`           Move down in the menu
+    `UP`             Move up in the menu
+    `<`              Decrease volume by 1%
+    `>`              Increase volume by 1%
+    `,`              Decrease volume by 5%
+    `.`              Increase volume by 5%
+    `RIGHT`          Seek forward by n-s
+    `LEFT`           Seek backward by n-s
 
 ## Use `h` to access the `help` page for extended commands:
 
