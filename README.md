@@ -125,10 +125,10 @@ Make sure to close the JP1 jumper on the I2S Audio pHAT before writing the EEPRO
     sudo ./eepflash.sh -w -f=i2s_audio_phat.eep -t=24c32
 
 
-Testing Audio
+### Testing Audio
 
 Disable built-in audio:
-Open `/boot/config.txt` in your favorite editor (nano, vi) as root, for example:
+Open `/boot/config.txt` in your favorite editor (nano or vi) as 'root':
 
     sudo nano /boot/config.txt
 
@@ -138,26 +138,21 @@ Comment out the `dtparam=audio=on` line:
     # dtparam=audio=on
     
 
-Using mplayer
+## Using MOC
 
-sudo apt install -y mplayer
+Install MOC -- (Music On Console) is a console audio player for LINUX/UNIX designed to be powerful and easy to use.
+MOC plays smoothly, regardless of system or I/O load because it uses the output buffer in a separate thread. 
+It provides gapelss playback because the next file to be played is precached while the current file is playing.
 
-Place your music in /home/pi/Music/ directory
+    pi@raspberrypi:~ $ sudo apt install -y moc
 
-mplayer -ao alsa Music/example.mp3
+Place your music in a directory (i.e. '/home/pi/Music/'), then launch 'mocp'
 
-Basic keys: (complete list in the man page, also check input.conf)
- <-  or  ->       seek backward/forward 10 seconds
- down or up       seek backward/forward  1 minute
- pgdown or pgup   seek backward/forward 10 minutes
- < or >           step backward/forward in playlist
- p or SPACE       pause movie (press any key to continue)
- q or ESC         stop playing and quit program
- + or -           adjust audio delay by +/- 0.1 second
- o                cycle OSD mode:  none / seekbar / seekbar + timer
- * or /           increase or decrease PCM volume
- x or z           adjust subtitle delay by +/- 0.1 second
- r or t           adjust subtitle position up/down, also see -vf expand
+    pi@raspberrypi:~ $ mocp
+    
+![mocp](images/mocp.png)
+    
 
- * * * SEE THE MAN PAGE FOR DETAILS, FURTHER (ADVANCED) OPTIONS AND KEYS * * *
+## Use 'h' to access the 'help' page:
 
+![mocp help](images/mocp_help.png)
