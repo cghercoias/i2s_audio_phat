@@ -4,7 +4,7 @@ I2S Audio Interface for Raspberry Pi Zero -- by Sergey Kiselev
 ## Introduction
 This is a Raspberry Pi Zero pHAT form-factor I2S audio interface board based on a [Cirrus Logic (Wolfson) WM8731](https://www.cirrus.com/products/wm8731/) audio codec. It provides line input, line output, headphones output, and includes an on-board microphone.
 
-![Micro 8088 Assembled Board](images/I2S_Audio_pHAT-Complete-3.0.jpg)
+![I2S Audio pHAT Assembled](images/I2S_Audio_pHAT-Complete-3.0.jpg)
 
 ## Hardware Documentation
 
@@ -142,7 +142,7 @@ Comment out the `dtparam=audio=on` line:
 
 Install MOC -- (Music On Console) is a console audio player for LINUX/UNIX designed to be powerful and easy to use.
 MOC plays smoothly, regardless of system or I/O load because it uses the output buffer in a separate thread. 
-It provides gapelss playback because the next file to be played is precached while the current file is playing.
+It provides gapless playback because the next file to be played is precached while the current file is playing.
 
     pi@raspberrypi:~ $ sudo apt install -y moc
 
