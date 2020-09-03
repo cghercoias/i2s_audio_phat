@@ -86,19 +86,19 @@ Now you can use your favorite application to play music or record sound. Enjoy!
 The I2S Audio pHAT includes an ID EEPROM as specified by HAT requirements. This ID EEPROM allows Raspberry OS to automatically detect the I2S Audio pHAT, add it to the device tree, and load approprate overlays and kernel modules. Follow the instructions below to program the EEPROM.
 Install dependencies software, if needed:
 
-sudo apt-get install -y i2c-tools device-tree-compiler
+    sudo apt-get install -y i2c-tools device-tree-compiler
 
 Check to see if EEPROM is on i2c bus 0:
-(Note - to enable bus 0 you need to add dtparam=i2c_vc=on in your /boot/config.txt )
+    (Note - to enable bus 0 you need to add dtparam=i2c_vc=on in your /boot/config.txt)
 
-pi@raspberrypi:~ $ i2cdetect -y 0
+    pi@raspberrypi:~ $ i2cdetect -y 0
 
 ![i2cdetect -y 0](images/i2cdetect_0.png)
 
 Check to see if WM8731 shows on i2c bus 1:
 (Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
 
-pi@raspberrypi:~ $ i2cdetect -y 1
+    pi@raspberrypi:~ $ i2cdetect -y 1
 
 ![i2cdetect -y 1](images/i2cdetect_1.png)
 
