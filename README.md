@@ -89,14 +89,16 @@ Install dependencies software, if needed:
     sudo apt-get install -y i2c-tools device-tree-compiler
 
 Check to see if EEPROM is on i2c bus 0:
-    (Note - to enable bus 0 you need to add dtparam=i2c_vc=on in your /boot/config.txt)
+    
+    (Note - to enable bus 0 you need to add 'dtparam=i2c_vc=on' in your /boot/config.txt)
 
     pi@raspberrypi:~ $ i2cdetect -y 0
 
 ![i2cdetect -y 0](images/i2cdetect_0.png)
 
 Check to see if WM8731 shows on i2c bus 1:
-(Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
+    
+    (Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
 
     pi@raspberrypi:~ $ i2cdetect -y 1
 
