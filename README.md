@@ -122,7 +122,7 @@ Create the `i2s_audio_phat.eep` ID EEPROM image, using the `eeprom_settings_i2s_
     ./eepmake ../../i2s_audio_phat/eeprom_settings_i2s_audio_phat.txt i2s_audio_phat.eep /boot/overlays/rpi-proto.dtbo
 
 Finally, flash the `i2s_audio_phat.eep` ID EEPROM image to the EEPROM. 
-Make sure to close the JP1 jumper on the I2S Audio pHAT before writing the EEPROM, for example using male to male jumper wire, or otherwise the write will fail.
+Make sure to close the `JP1` jumper on the `I2S Audio pHAT` before writing the EEPROM, for example using male to male jumper wire, or otherwise the write will fail.
 
     sudo ./eepflash.sh -w -f=i2s_audio_phat.eep -t=24c32
 
@@ -130,7 +130,7 @@ Make sure to close the JP1 jumper on the I2S Audio pHAT before writing the EEPRO
 ### Testing Audio
 
 Disable built-in RaspberryPi audio. 
-Open `/boot/config.txt` in your favorite editor (nano or vi) as 'root':
+Open `/boot/config.txt` in your favorite editor (`nano` or `vi`) as `root`:
 
     sudo nano /boot/config.txt
 
@@ -142,19 +142,28 @@ Comment out the `dtparam=audio=on` line:
 
 ## Using MOC
 
-Install MOC -- (Music On Console) is a console audio player for LINUX/UNIX designed to be powerful and easy to use.
+Install `MOC`-- (Music On Console) is a console audio player for LINUX/UNIX designed to be powerful and easy to use.
 MOC plays smoothly, regardless of system or I/O load because it uses the output buffer in a separate thread. 
 It provides gapless playback because the next file to be played is precached while the current file is playing.
 
     pi@raspberrypi:~ $ sudo apt install -y moc
 
-Place your music in a directory (i.e. '/home/pi/Music/'), then launch 'mocp'
+Place your music in a directory (i.e. `/home/pi/Music/`), then launch `mocp`
 
     pi@raspberrypi:~ $ mocp
     
 ![mocp](images/mocp.png)
     
+`ENTER`          Start playing at this file or go to this directory
+`DOWN`           Move down in the menu
+`UP`             Move up in the menu
+`<`              Decrease volume by 1%
+`>`              Increase volume by 1%
+`,`              Decrease volume by 5%
+`.`              Increase volume by 5%
+`RIGHT`          Seek forward by n-s
+`LEFT`           Seek backward by n-s
 
-## Use 'h' to access the 'help' page:
+## Use `h` to access the `help` page for extended commands:
 
 ![mocp help](images/mocp_help.png)
