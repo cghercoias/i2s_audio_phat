@@ -93,14 +93,14 @@ Check to see if EEPROM is on i2c bus 0:
 
 pi@raspberrypi:~ $ i2cdetect -y 0
 
-![sudo i2cdetect -y 0](images/i2cdetect_0.png)
+![i2cdetect -y 0](images/i2cdetect_0.png)
 
 Check to see if WM8731 shows on i2c bus 1:
 (Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
 
 pi@raspberrypi:~ $ i2cdetect -y 1
 
-![sudo i2cdetect -y 1](images/i2cdetect_1.png)
+![i2cdetect -y 1](images/i2cdetect_1.png)
 
 Clone the Raspberry Pi [hats](https://github.com/raspberrypi/hats) repostory from GitHub:
 
