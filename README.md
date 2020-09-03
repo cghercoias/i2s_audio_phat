@@ -83,28 +83,23 @@ Now you can use your favorite application to play music or record sound. Enjoy!
 
 ### Raspberry Pi HAT ID EEPROM Programming
 
-The I2S Audio pHAT includes an ID EEPROM as specified by HAT requirements. This ID EEPROM allows Raspbian to automatically detect the I2S Audio pHAT, add it to the device tree, and load approprate overlays and kernel modules. Follow the instructions below to program the EEPROM.
+The I2S Audio pHAT includes an ID EEPROM as specified by HAT requirements. This ID EEPROM allows Raspberry OS to automatically detect the I2S Audio pHAT, add it to the device tree, and load approprate overlays and kernel modules. Follow the instructions below to program the EEPROM.
 Install dependencies software, if needed:
 
 sudo apt-get install -y i2c-tools device-tree-compiler
 
-Check to see if EEPROM is on i2c 0 bus:
+Check to see if EEPROM is on i2c bus 0:
+(Note - to enable bus 0 you need to add dtparam=i2c_vc=on in your /boot/config.txt )
 
-pi@moode:~/hats/eepromutils $ i2cdetect -y 0
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:          -- -- -- -- -- -- -- -- -- -- -- -- --
-10: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-50: 50 -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-70: -- -- -- -- -- -- -- --
+pi@raspberrypi:~ $ i2cdetect -y 0
+
+![sudo i2cdetect -y 0](images/i2cdetect_0.png)
 
 Check to see if WM8731 shows on i2c bus 1:
 (Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
 
-![Micro 8088 Assembled Board](images/I2S_Audio_pHAT-Complete-3.0.jpg)
+pi@raspberrypi:~ $ i2cdetect -y 1
+
 ![sudo i2cdetect -y 1](images/i2cdetect_1.png)
 
 Clone the Raspberry Pi [hats](https://github.com/raspberrypi/hats) repostory from GitHub:
