@@ -104,18 +104,7 @@ pi@moode:~/hats/eepromutils $ i2cdetect -y 0
 Check to see if WM8731 shows on i2c bus 1:
 (Note  - 'UU' means a driver has been loaded for the chip already, otherwise 1A address will show)
 
-pi@moode:~/hats/eepromutils $ i2cdetect -y 1
-     0  1  2  3  4  5  6  7  8  9  a  b  c  d  e  f
-00:          -- -- -- -- -- -- -- -- -- -- -- -- --
-10: -- -- -- -- -- -- -- -- -- -- UU -- -- -- -- --
-20: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-30: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-40: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-50: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-60: -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- --
-70: -- -- -- -- -- -- -- --
-pi@moode:~/hats/eepromutils $
-
+https://github.com/cghercoias/i2s_audio_phat/blob/master/images/i2cdetect_1.png
 
 Clone the Raspberry Pi [hats](https://github.com/raspberrypi/hats) repostory from GitHub:
 
