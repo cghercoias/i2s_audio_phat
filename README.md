@@ -2,7 +2,7 @@
 I2S Audio Interface for Raspberry Pi Zero -- by Sergey Kiselev
 
 ## Introduction
-This is a Raspberry Pi Zero pHAT form-factor I2S audio interface board based on a [Cirrus Logic (Wolfson) WM8731](https://www.cirrus.com/products/wm8231) audio codec. It provides line input, line output, headphones output, and includes an on-board microphone.
+This is a Raspberry Pi Zero pHAT form-factor I2S audio interface board based on a [Cirrus Logic (Wolfson) WM8731](https://www.mouser.com/datasheet/2/76/WM8731_v4.9-532414.pdf) audio codec. It provides line input, line output, headphones output, and includes an on-board microphone.
 
 ![I2S Audio pHAT Assembled](images/I2S_Audio_pHAT-Complete-3.0.jpg)
 
